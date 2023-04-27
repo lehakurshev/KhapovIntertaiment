@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System;
+using static UnityEngine.GraphicsBuffer;
+using Unity.VisualScripting;
 
 public class Playernew : MonoBehaviour
 {
-    private float speed = 3f;
-    private bool isFacingRight = false;
-    private Vector2 direction;
+    
+    public float health;
+    public float speed = 5f;
+    public bool isFacingRight = false;
+    public Vector2 direction;
     public Animator animator;
+    Transform target;
     [SerializeField] private Rigidbody2D rb;
+    public GameObject light;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
-    void Update()
+    [Obsolete]
+    private void FixedUpdate()
     {
+        
+        if(Input.GetKey(KeyCode.Space))
+                light.active = false;
+        else
+            light.active = true;
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
@@ -26,10 +39,7 @@ public class Playernew : MonoBehaviour
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Speed", direction.sqrMagnitude);
         Flip();
-    }
 
-    private void FixedUpdate()
-    {
         rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
     }
 

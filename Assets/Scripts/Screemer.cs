@@ -10,6 +10,7 @@ public class Screemer : MonoBehaviour
     public float speed = 3;
     public GameObject sleep;
     public GameObject activ;
+    public GameObject player;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Playernew").GetComponent<Transform>();
@@ -24,7 +25,7 @@ public class Screemer : MonoBehaviour
         {
             sleep.active = false;
             activ.active = true;
-            
+            player.active = false;
         }
             
 
