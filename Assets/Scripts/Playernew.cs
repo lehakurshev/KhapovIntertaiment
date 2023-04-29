@@ -16,7 +16,8 @@ public class Playernew : MonoBehaviour
     public Animator animator;
     Transform target;
     [SerializeField] private Rigidbody2D rb;
-    public GameObject light;
+    public GameObject Light;
+    public GameObject WalkSound;
 
     void Start()
     {
@@ -29,9 +30,9 @@ public class Playernew : MonoBehaviour
     {
         
         if(Input.GetKey(KeyCode.Space))
-                light.active = false;
+                Light.active = false;
         else
-            light.active = true;
+            Light.active = true;
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
@@ -41,6 +42,11 @@ public class Playernew : MonoBehaviour
         Flip();
 
         rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+        if (direction.x != 0 || direction.y != 0)
+            WalkSound.SetActive(true);
+        else
+            WalkSound.SetActive(false);
+
     }
 
     private void Flip()
