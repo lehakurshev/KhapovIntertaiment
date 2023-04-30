@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9274dcd0b969d334880ed851954c1cb0
+guid: e4a81062b13ccb8479990b04fc731b4f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -115,112 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: _down idle_0
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 78
-        width: 14
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: baa5a74de2e71e44a8705e9a748b7919
-      internalID: -1654140004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down idle_1
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 78
-        width: 14
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa3b3a0e67938694baed72cc820d02ae
-      internalID: -360778485
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down idle_2
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 78
-        width: 14
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56ca03e62b68d40409dd27195950b544
-      internalID: -681113170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down idle_3
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 78
-        width: 14
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cad7c2d9eb53d74eba1ef37ff2b3f36
-      internalID: -1692534757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down idle_4
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 14
-        width: 14
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86098f6ea31bd5e4d8a8d938a813e368
-      internalID: 1758171537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -231,12 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      _down idle_0: -1654140004
-      _down idle_1: -360778485
-      _down idle_2: -681113170
-      _down idle_3: -1692534757
-      _down idle_4: 1758171537
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
