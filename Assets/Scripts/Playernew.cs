@@ -33,6 +33,14 @@ public class Playernew : MonoBehaviour
                 Light.active = false;
         else
             Light.active = true;
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            animator.SetBool("isAttack", true);
+        }
+        else
+            animator.SetBool("isAttack", false);
+
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
 
