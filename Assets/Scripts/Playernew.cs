@@ -34,7 +34,7 @@ public class Playernew : MonoBehaviour
         else
             Light.active = true;
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             animator.SetBool("isAttack", true);
         }
