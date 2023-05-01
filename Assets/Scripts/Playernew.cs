@@ -19,6 +19,10 @@ public class Playernew : MonoBehaviour
     public GameObject Light;
     public GameObject WalkSound;
 
+    static double time =0;
+
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,24 +40,36 @@ public class Playernew : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            animator.SetBool("isAttack", true);
+            if (time == 0 || Time.time>=time+0.5)
+            {
+                animator.SetBool("isAttack", true);
+                time = Time.time;
+                
+            }
+            
         }
-        else
+        else if (Time.time >= time + 0.5)
+        {
             animator.SetBool("isAttack", false);
+            direction.x = Input.GetAxisRaw("Horizontal");
+            direction.y = Input.GetAxisRaw("Vertical");
 
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Speed", direction.sqrMagnitude);
+            Flip();
 
-        animator.SetFloat("Vertical", direction.y);
-        animator.SetFloat("Horizontal", direction.x);
-        animator.SetFloat("Speed", direction.sqrMagnitude);
-        Flip();
+            rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+            if ((direction.x != 0 || direction.y != 0 ) && !Input.GetKey(KeyCode.Mouse0))
+                WalkSound.SetActive(true);
+            else
+                WalkSound.SetActive(false);
+            
 
-        rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
-        if (direction.x != 0 || direction.y != 0)
-            WalkSound.SetActive(true);
-        else
-            WalkSound.SetActive(false);
+        }
+            
+
+        
 
     }
 
