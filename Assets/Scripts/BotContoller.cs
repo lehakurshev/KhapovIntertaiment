@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
+using System.Runtime.InteropServices;
 
 public class BotContoller : MonoBehaviour
 {
@@ -9,12 +11,26 @@ public class BotContoller : MonoBehaviour
     NavMeshAgent agent;
     public double helth=5000;
     public GameObject Enemy;
+    public GameObject Music;
+    public GameObject Glight;
+    public GameObject Plight;
+    public GameObject[] Points;
+    Vector2 RandomPoint;
+    static bool IsInPoint = false;
+    static int Point;
+    static bool IsActive=false;
+    static bool IsPassive;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        
     }
 
     // Update is called once per frame
@@ -22,13 +38,42 @@ public class BotContoller : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Mouse0) && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2)
+        
+
+        //if (Input.GetKey(KeyCode.Mouse0) && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2)
+        //{
+        //    helth--;
+        //}
+        if (helth < 0)
         {
-            helth--;
-        }
-        if (helth == 0)
             Enemy.active = false;
-        agent.SetDestination(playerTr.position);
+            //Music.active= false;
+            
+            Glight.SetActive(false);
+            Plight.SetActive(true);
+            //helth = 5000;
+
+        }
+        if ((Vector2.Distance(transform.position, playerTr.position) < 3))
+            IsActive = true;
+        else
+            IsActive = false;
+        if (IsActive)
+            agent.SetDestination(playerTr.position);
+        else if (!IsInPoint)
+        {
+            Point = Random.Range(0, Points.Length - 1);
+            
+            IsInPoint = true;
+        }
+        else
+        {
+            if (Vector2.Distance(transform.position, Points[Point].transform.position) > 0.6)
+                agent.SetDestination(Points[Point].transform.position);
+            else
+                IsInPoint = false;
+        }
+
 
 
         bool asi = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_idle");
@@ -40,11 +85,11 @@ public class BotContoller : MonoBehaviour
 
         var S = asi || asi2 || asi3 || asi4 || asi5 || asi6;
 
-        if (S && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2 )
+        if (S && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2 && Input.GetKey(KeyCode.Mouse0))
         {
             Enemy.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
             Enemy.transform.position= Vector2.MoveTowards(transform.position, playerTr.transform.position, -2*Time.fixedDeltaTime);
-            
+            helth--;
         }
         else
         {
