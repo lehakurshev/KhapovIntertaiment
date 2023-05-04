@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using System;
 using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting;
+using static Unity.Burst.Intrinsics.X86.Sse4_2;
 
 public class Playernew : MonoBehaviour
 {
@@ -15,13 +16,15 @@ public class Playernew : MonoBehaviour
     public Vector2 direction;
     public Animator animator;
     Transform target;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] 
+    private Rigidbody2D rb;
     public GameObject Light;
     public GameObject WalkSound;
 
     static double time =0;
 
-    
+    static float Horizontal = 0;
+    static float Vertical = 0;
 
     void Start()
     {
@@ -33,7 +36,9 @@ public class Playernew : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if(Input.GetKey(KeyCode.Space))
+
+
+        if (Input.GetKey(KeyCode.Space))
                 Light.active = false;
         else
             Light.active = true;
@@ -51,15 +56,27 @@ public class Playernew : MonoBehaviour
         else if (Time.time >= time + 0.5)
         {
             animator.SetBool("isAttack", false);
+
+            
+
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.y = Input.GetAxisRaw("Vertical");
 
-            animator.SetFloat("Vertical", direction.y);
-            animator.SetFloat("Horizontal", direction.x);
-            animator.SetFloat("Speed", direction.sqrMagnitude);
+
+
+
+            //if (Input.GetAxisRaw("Horizontal")==0)
+            //    direction.y = Input.GetAxisRaw("Vertical");
+            
+            
+               animator.SetFloat("Vertical", direction.y);
+                animator.SetFloat("Horizontal", direction.x);
+                animator.SetFloat("Speed", direction.sqrMagnitude);
+            
             Flip();
 
             rb.MovePosition(rb.position + direction.normalized * speed * Time.fixedDeltaTime);
+
             if ((direction.x != 0 || direction.y != 0 ) && !Input.GetKey(KeyCode.Mouse0))
                 WalkSound.SetActive(true);
             else
@@ -67,6 +84,7 @@ public class Playernew : MonoBehaviour
             
 
         }
+        
             
 
         
