@@ -20,6 +20,8 @@ public class enemy : MonoBehaviour
         
         //if (Vector2.Distance(transform.position, target.position) < 1)
             target = GameObject.FindGameObjectWithTag("Playernew").GetComponent<Transform>();
+
+        health = 60;
     }
 
     // Update is called once per frame
@@ -45,14 +47,9 @@ public class enemy : MonoBehaviour
             a = true;
         else
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
-    }
-
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
     }
 }

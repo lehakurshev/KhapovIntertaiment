@@ -21,7 +21,11 @@ public class BotContoller : MonoBehaviour
     static bool IsActive=false;
     static bool IsPassive;
 
-    
+    public float redShade = 1f;
+
+    public Animator animator;
+
+    private float health = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +41,12 @@ public class BotContoller : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-
-        
+        if (health <= 0)
+        {
+            animator.SetBool("isDead", true);
+            Enemy.GetComponent<Collider2D>().enabled = false;
+            return;
+        }
 
         //if (Input.GetKey(KeyCode.Mouse0) && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2)
         //{
@@ -76,24 +84,31 @@ public class BotContoller : MonoBehaviour
 
 
 
-        bool asi = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_idle");
-        bool asi2 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_idle");
-        bool asi3 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_walk");
-        bool asi4 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_walk");
-        bool asi5 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_idle");
-        bool asi6 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_walk");
+        //bool asi = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_idle");
+        //bool asi2 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_idle");
+        //bool asi3 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_walk");
+        //bool asi4 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_walk");
+        //bool asi5 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_idle");
+        //bool asi6 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_walk");
 
-        var S = asi || asi2 || asi3 || asi4 || asi5 || asi6;
+        //var S = asi || asi2 || asi3 || asi4 || asi5 || asi6;
 
-        if (S && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2 && Input.GetKey(KeyCode.Mouse0))
-        {
-            Enemy.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
-            Enemy.transform.position= Vector2.MoveTowards(transform.position, playerTr.transform.position, -2*Time.fixedDeltaTime);
-            helth--;
-        }
-        else
-        {
-            Enemy.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
-        }
+        //if (S && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2 && Input.GetKey(KeyCode.Mouse0))
+        //{
+        //    Enemy.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
+        //    Enemy.transform.position= Vector2.MoveTowards(transform.position, playerTr.transform.position, -2*Time.fixedDeltaTime);
+        //    helth--;
+        //}
+        //else
+        //{
+        //    Enemy.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
+        //}
     }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Enemy.GetComponent<Renderer>().material.color = new Color(redShade, 0, 0);
+        redShade = redShade - (redShade - 0.33 > 0 ? 0.33f : 0f);
+    }
+
 }
