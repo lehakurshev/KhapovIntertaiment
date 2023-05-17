@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using static Unity.Burst.Intrinsics.X86.Sse4_2;
 using static UnityEngine.EventSystems.EventTrigger;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 public class Playernew : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Playernew : MonoBehaviour
     [SerializeField] 
     private Rigidbody2D rb;
     public GameObject Light;
+    public GameObject GlobalLight;
     public GameObject WalkSound;
 
     public float health = 500000;
@@ -33,19 +35,36 @@ public class Playernew : MonoBehaviour
 
     static double time = 0;
 
-    
+    public GameObject GameOverPNG;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         
+
     }
 
     [Obsolete]
     private void FixedUpdate()
     {
+        
+
+        if (health<= 0) 
+        {
+            GetComponent<Pause>().GetPause();
+            GameOverPNG.SetActive(true);
+            GlobalLight.SetActive(true);
+        }
+        else
+        {
+            GameOverPNG.SetActive(false);
+        }
+        
+
+
         if (Input.GetKey(KeyCode.Space))
-                Light.active = false;
+            Light.active = false;
         else
             Light.active = true;
 
@@ -121,6 +140,8 @@ public class Playernew : MonoBehaviour
     public void TakeDamage(float damage,bool isdamage) 
     {
         health-=damage;
+        //GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 0, 0);
+
     }
 
     

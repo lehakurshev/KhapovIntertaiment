@@ -31,6 +31,8 @@ public class BotContoller : MonoBehaviour
 
     public GameObject playerObject;
 
+    public float distansToAttac = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,12 @@ public class BotContoller : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        if (health <= 0)
+        if (Input.GetKey(KeyCode.Space))
+            distansToAttac = 1;
+        else
+            distansToAttac = 3;
+
+            if (health <= 0)
         {
             animator.SetBool("isDead", true);
             Enemy.GetComponent<Collider2D>().enabled = false;
@@ -67,7 +74,7 @@ public class BotContoller : MonoBehaviour
             //helth = 5000;
 
         }
-        if ((Vector2.Distance(transform.position, playerTr.position) < 3))
+        if ((Vector2.Distance(transform.position, playerTr.position) < distansToAttac))
             IsActive = true;
         else
             IsActive = false;
@@ -88,20 +95,16 @@ public class BotContoller : MonoBehaviour
         }
 
         var Player = Physics2D.OverlapCircleAll(playerTr.position, 10000f, player);
-        foreach(var p in Player)
+        if (!playerObject.GetComponent<Pause>().GamePause)
         {
-            if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
-                p.GetComponent<Playernew>().TakeDamage(1, true);
-                
-
-
+            foreach (var p in Player)
+            {
+                if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
+                    p.GetComponent<Playernew>().TakeDamage(500, true);
+            }
         }
-        if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
-        {
-            playerObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
-        }
-        else
-            playerObject.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
+        
+        
 
 
 
