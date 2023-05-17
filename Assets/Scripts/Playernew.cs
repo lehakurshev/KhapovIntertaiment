@@ -7,11 +7,12 @@ using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting;
 using static Unity.Burst.Intrinsics.X86.Sse4_2;
 using static UnityEngine.EventSystems.EventTrigger;
+using System.Drawing;
 
 public class Playernew : MonoBehaviour
 {
     
-    public float health;
+    
     public float speed = 5f;
     public bool isFacingRight = false;
     public Vector2 direction;
@@ -22,6 +23,8 @@ public class Playernew : MonoBehaviour
     public GameObject Light;
     public GameObject WalkSound;
 
+    public float health = 500000;
+
     public GameObject circle_left;
     public GameObject circle_up;
     public GameObject circle_down;
@@ -29,6 +32,9 @@ public class Playernew : MonoBehaviour
     private float damage = 20f;
 
     static double time = 0;
+
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,6 +83,8 @@ public class Playernew : MonoBehaviour
             else
                 WalkSound.SetActive(false);
         }
+        
+        
     }
 
     private void Flip()
@@ -109,4 +117,11 @@ public class Playernew : MonoBehaviour
             e.GetComponent<BotContoller>().TakeDamage(damage);
         }
     }
+
+    public void TakeDamage(float damage,bool isdamage) 
+    {
+        health-=damage;
+    }
+
+    
 }

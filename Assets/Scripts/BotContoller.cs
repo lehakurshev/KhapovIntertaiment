@@ -27,6 +27,10 @@ public class BotContoller : MonoBehaviour
 
     private float health = 50;
 
+    public LayerMask player;
+
+    public GameObject playerObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,7 @@ public class BotContoller : MonoBehaviour
         {
             animator.SetBool("isDead", true);
             Enemy.GetComponent<Collider2D>().enabled = false;
+            Enemy.GetComponent<NavMeshAgent>().enabled = false;
             return;
         }
 
@@ -82,6 +87,24 @@ public class BotContoller : MonoBehaviour
                 IsInPoint = false;
         }
 
+        var Player = Physics2D.OverlapCircleAll(playerTr.position, 10000f, player);
+        foreach(var p in Player)
+        {
+            if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
+                p.GetComponent<Playernew>().TakeDamage(1, true);
+                
+
+
+        }
+        if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
+        {
+            playerObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
+        }
+        else
+            playerObject.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
+
+
+
 
 
         //bool asi = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_idle");
@@ -109,6 +132,9 @@ public class BotContoller : MonoBehaviour
         health -= damage;
         Enemy.GetComponent<Renderer>().material.color = new Color(redShade, 0, 0);
         redShade = redShade - (redShade - 0.33 > 0 ? 0.33f : 0f);
+
+        agent.speed += 1f;
+        Enemy.transform.localScale = Enemy.transform.localScale * 1.2f;
     }
 
 }
