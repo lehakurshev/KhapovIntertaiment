@@ -1,25 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using System.Collections;
+using System.Threading;
+using System.Security.Cryptography.X509Certificates;
 
-
-public class MainMenu_StartGame: MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class MainMenu_StartGame : MonoBehaviour
 {
-    [SerializeField] private AudioClip _clip;
-    [SerializeField] private AudioSource _source;
+    public UnityEngine.UI.Button yourButton;
+    public Animator animator;
+    private UnityEngine.UI.Button btn;
+    [SerializeField] private AudioSource thunder;
+    [SerializeField] private GameObject buttons;
+    [SerializeField] private GameObject changeLevel;
 
-    public void IWasClicked()
+    void Start()
     {
-        Debug.Log("Clicked");
+        btn = yourButton.GetComponent<UnityEngine.UI.Button>();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void Update()
     {
-        _source.PlayOneShot(_clip);
+        btn.onClick.AddListener(TaskOnClick);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("light") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            TaskOnNotClick();
+            
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    private void TaskOnNotClick()
     {
-        
+        if (btn.GetComponent<UnityEngine.UI.Button>().name != "startGame")
+            return;
+    }
+
+    private void TaskOnClick()
+    {
+        animator.SetBool("isClick", true);
+
+        if (btn.GetComponent<UnityEngine.UI.Button>().tag == "startGame")
+            thunder.Play();
+        StartCoroutine(WaitForStateExit());
+    }
+
+    private IEnumerator WaitForStateExit()
+    {
+        yield return new WaitForSeconds(2.3f);
+        if (btn.GetComponent<UnityEngine.UI.Button>().tag == "startGame")
+        {
+            buttons.SetActive(false);
+            changeLevel.SetActive(true);
+            animator.SetBool("isClick", false);
+        }
     }
 }
