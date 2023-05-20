@@ -9,7 +9,7 @@ public class enemy : MonoBehaviour
     public float speed = 1f;
     public float distance = 3;
     Transform target;
-    public GameObject Point1 ;
+    public GameObject Point1;
     public GameObject Point2;
     public GameObject player;
     private bool a = true;

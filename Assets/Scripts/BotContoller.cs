@@ -74,6 +74,7 @@ public class BotContoller : MonoBehaviour
             //helth = 5000;
 
         }
+
         if ((Vector2.Distance(transform.position, playerTr.position) < distansToAttac))
             IsActive = true;
         else
