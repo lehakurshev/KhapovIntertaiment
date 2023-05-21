@@ -16,6 +16,9 @@ public class Screemer : MonoBehaviour
     public GameObject Plight;
     public GameObject wave;
     public GameObject door;
+    public GameObject jellyfish1;
+    public GameObject jellyfish2;
+    public GameObject jellyfish3;
 
     void Start()
     {
@@ -26,7 +29,23 @@ public class Screemer : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        
+        if (jellyfish1 != null)
+        {
+            jellyfish1.GetComponent<BotContoller>().distansToAttac = 100;
+            jellyfish2.GetComponent<BotContoller>().distansToAttac = 100;
+            jellyfish3.GetComponent<BotContoller>().distansToAttac = 100;
+
+            if (jellyfish1.GetComponent<BotContoller>().health <= 0 &&
+                jellyfish2.GetComponent<BotContoller>().health <= 0 &&
+                jellyfish3.GetComponent<BotContoller>().health <= 0)
+            {
+                music.SetActive(false);
+                Destroy(this.gameObject);
+                Glight.SetActive(false);
+                Plight.SetActive(true);
+            }
+        }
+
         if (Vector2.Distance(transform.position, target.position) < 3)
         {
             sleep.active = false;
@@ -35,11 +54,7 @@ public class Screemer : MonoBehaviour
             Glight.SetActive(true);
             Plight.SetActive(false);
 
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
-
+            //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
         }
-
-            
-
     }
 }
