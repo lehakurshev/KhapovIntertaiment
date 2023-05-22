@@ -9,6 +9,7 @@ using static Unity.Burst.Intrinsics.X86.Sse4_2;
 using static UnityEngine.EventSystems.EventTrigger;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using UnityEngine.Rendering.Universal;
 
 public class Playernew : MonoBehaviour
 {
@@ -54,19 +55,16 @@ public class Playernew : MonoBehaviour
         {
             GetComponent<Pause>().GetPause();
             GameOverPNG.SetActive(true);
-            GlobalLight.SetActive(true);
+            //GlobalLight.SetActive(true);
         }
-        else
-        {
-            GameOverPNG.SetActive(false);
-        }
+        
         
 
 
         if (Input.GetKey(KeyCode.Space))
-            Light.active = false;
+            Light.GetComponent<Light2D>().intensity = 1;
         else
-            Light.active = true;
+            Light.GetComponent<Light2D>().intensity = 0.06f;
 
         if (Input.GetKey(KeyCode.Mouse0))
         { 

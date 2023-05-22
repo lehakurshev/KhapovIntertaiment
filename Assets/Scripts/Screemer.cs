@@ -16,9 +16,7 @@ public class Screemer : MonoBehaviour
     public GameObject Plight;
     public GameObject wave;
     public GameObject door;
-    public GameObject jellyfish1;
-    public GameObject jellyfish2;
-    public GameObject jellyfish3;
+    public GameObject[] jellyfish;
 
     void Start()
     {
@@ -29,22 +27,24 @@ public class Screemer : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        if (jellyfish1 != null)
+        var k = 0;
+        foreach (var j in jellyfish)
         {
-            jellyfish1.GetComponent<BotContoller>().distansToAttac = 100;
-            jellyfish2.GetComponent<BotContoller>().distansToAttac = 100;
-            jellyfish3.GetComponent<BotContoller>().distansToAttac = 100;
-
-            if (jellyfish1.GetComponent<BotContoller>().health <= 0 &&
-                jellyfish2.GetComponent<BotContoller>().health <= 0 &&
-                jellyfish3.GetComponent<BotContoller>().health <= 0)
-            {
-                music.SetActive(false);
-                Destroy(this.gameObject);
-                Glight.SetActive(false);
-                Plight.SetActive(true);
-            }
+            if (j.GetComponent<BotContoller>().health <= 0)
+                k++;
         }
+        if (k == jellyfish.Length)
+        {
+            music.SetActive(false);
+                
+            Glight.SetActive(false);
+            Plight.SetActive(true);
+            Destroy(this.gameObject);
+
+        }
+                
+        
+
 
         if (Vector2.Distance(transform.position, target.position) < 3)
         {
@@ -54,6 +54,10 @@ public class Screemer : MonoBehaviour
             Glight.SetActive(true);
             Plight.SetActive(false);
 
+            foreach (var j in jellyfish)
+            {
+                j.GetComponent<BotContoller>().distansToAttac = 100;
+            }
             //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
         }
     }
