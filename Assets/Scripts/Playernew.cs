@@ -26,8 +26,8 @@ public class Playernew : MonoBehaviour
     public GameObject GlobalLight;
     public GameObject WalkSound;
 
-    public float health = 500000;
-
+    public float health = 500;
+    public GameObject healthGameObject;
     public GameObject circle_left;
     public GameObject circle_up;
     public GameObject circle_down;
@@ -36,20 +36,26 @@ public class Playernew : MonoBehaviour
 
     static double time = 0;
 
+    public float D = 1;
+    public float M = 1;
+    public float F = 1;
     public GameObject GameOverPNG;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        
+        F = (healthGameObject.transform.localScale.x);
 
     }
 
     [Obsolete]
     private void FixedUpdate()
     {
-        
+        D =(health / 5000);
+        M = (healthGameObject.transform.localScale.x) * D;
+
+        healthGameObject.transform.localScale = new Vector2(F*D, healthGameObject.transform.localScale.y);
 
         if (health<= 0) 
         {

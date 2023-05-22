@@ -106,7 +106,7 @@ public class BotContoller : MonoBehaviour
             foreach (var p in Player)
             {
                 if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
-                    p.GetComponent<Playernew>().TakeDamage(15000, true);
+                    p.GetComponent<Playernew>().TakeDamage(4, true);
             }
         }
         
