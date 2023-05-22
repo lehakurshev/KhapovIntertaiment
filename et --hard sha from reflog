@@ -1,0 +1,47 @@
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: checkout: moving from a99e8b0636d73a798c9783363da1db35e1c5ed25 to d25fe3a2bf1ca8509584782f51184dca6edc97e9
+[33ma99e8b0[m[33m ([m[1;31morigin/new_enemies[m[33m, [m[1;32mnew_enemies[m[33m)[m HEAD@{1}: checkout: moving from main to a99e8b0636d73a798c9783363da1db35e1c5ed25
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2}: checkout: moving from d25fe3a2bf1ca8509584782f51184dca6edc97e9 to main
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{3}: checkout: moving from new_enemies to d25fe3a2bf1ca8509584782f51184dca6edc97e9
+[33ma99e8b0[m[33m ([m[1;31morigin/new_enemies[m[33m, [m[1;32mnew_enemies[m[33m)[m HEAD@{4}: checkout: moving from d25fe3a2bf1ca8509584782f51184dca6edc97e9 to new_enemies
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{5}: checkout: moving from 666ea3dc4498e049a715589507f7d4953405c7df to d25fe3a2bf1ca8509584782f51184dca6edc97e9
+[33m666ea3d[m HEAD@{6}: commit: f....ng_secod_LVL
+[33m070371b[m HEAD@{7}: commit (merge): Merge commit 'a99e8b0636d73a798c9783363da1db35e1c5ed25' into HEAD
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{8}: checkout: moving from a99e8b0636d73a798c9783363da1db35e1c5ed25 to d25fe3a2bf1ca8509584782f51184dca6edc97e9
+[33ma99e8b0[m[33m ([m[1;31morigin/new_enemies[m[33m, [m[1;32mnew_enemies[m[33m)[m HEAD@{9}: checkout: moving from main to a99e8b0636d73a798c9783363da1db35e1c5ed25
+[33md25fe3a[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{10}: commit (merge): globalChanges
+[33mca51325[m HEAD@{11}: commit: first-first LVL
+[33mba0d542[m HEAD@{12}: commit: GameOver and pause
+[33m368d75b[m HEAD@{13}: commit: Jenemu and damage to player
+[33mbacfebb[m HEAD@{14}: pull origin main: Fast-forward
+[33mf7fe967[m HEAD@{15}: checkout: moving from f7fe967123e4dc55a1eb52ad547bc040953ff681 to main
+[33mf7fe967[m HEAD@{16}: checkout: moving from 747563010bcb9818ad072607308658a6465754dc to f7fe967123e4dc55a1eb52ad547bc040953ff681
+[33m7475630[m HEAD@{17}: checkout: moving from main to 747563010bcb9818ad072607308658a6465754dc
+[33mf7fe967[m HEAD@{18}: pull: Fast-forward
+[33m7475630[m HEAD@{19}: checkout: moving from f7fe967123e4dc55a1eb52ad547bc040953ff681 to main
+[33mf7fe967[m HEAD@{20}: checkout: moving from main to f7fe967123e4dc55a1eb52ad547bc040953ff681
+[33m7475630[m HEAD@{21}: pull --tags origin main: Merge made by the 'ort' strategy.
+[33m6993eb9[m HEAD@{22}: commit: Enemy£
+[33m93371f2[m HEAD@{23}: commit: Enemy_update
+[33m950512c[m HEAD@{24}: commit: damag_enemy
+[33m2f05c71[m HEAD@{25}: commit: It_is_work!!!
+[33m05f9130[m HEAD@{26}: merge try_moves_enemies: Merge made by the 'ort' strategy.
+[33m1985f50[m HEAD@{27}: checkout: moving from try_moves_enemies to main
+[33m2744f7d[m[33m ([m[1;32mtry_moves_enemies[m[33m)[m HEAD@{28}: checkout: moving from main to try_moves_enemies
+[33m1985f50[m HEAD@{29}: checkout: moving from try_moves_enemies to main
+[33m2744f7d[m[33m ([m[1;32mtry_moves_enemies[m[33m)[m HEAD@{30}: pull origin try_moves_enemies: Merge made by the 'ort' strategy.
+[33mc7617f2[m HEAD@{31}: checkout: moving from try_moves_enemies to try_moves_enemies
+[33mc7617f2[m HEAD@{32}: checkout: moving from main to try_moves_enemies
+[33m1985f50[m HEAD@{33}: checkout: moving from try_moves_enemies to main
+[33mc7617f2[m HEAD@{34}: checkout: moving from main to try_moves_enemies
+[33m1985f50[m HEAD@{35}: pull origin main: Merge made by the 'ort' strategy.
+[33m71523c8[m HEAD@{36}: checkout: moving from try_moves_enemies to main
+[33mc7617f2[m HEAD@{37}: commit (merge): merging enemy1
+[33m6fcddba[m HEAD@{38}: checkout: moving from main to try_moves_enemies
+[33m71523c8[m HEAD@{39}: commit: merging enemy
+[33maff329d[m HEAD@{40}: reset: moving to HEAD
+[33maff329d[m HEAD@{41}: checkout: moving from try_moves_enemies to main
+[33m6fcddba[m HEAD@{42}: checkout: moving from main to try_moves_enemies
+[33maff329d[m HEAD@{43}: pull origin main: Fast-forward
+[33m8cb3990[m HEAD@{44}: checkout: moving from main to main
+[33m8cb3990[m HEAD@{45}: pull: Fast-forward
+[33mc356d74[m HEAD@{46}: clone: from github.com:lehakurshev/KhapovIntertaiment.git

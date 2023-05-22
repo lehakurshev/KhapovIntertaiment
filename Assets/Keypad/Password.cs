@@ -11,6 +11,7 @@ public class Password : MonoBehaviour
     string alpha;
     public Text UiText = null;
     public GameObject door;
+    
 
     public void CodeFunction(string Numbers)
     {
@@ -25,6 +26,7 @@ public class Password : MonoBehaviour
         if (Nr == Code)
         {
             door.SetActive(false);
+           
         }
     }
     public void Delete()

@@ -26,9 +26,9 @@ public class ghoste : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
-            distansToAttac = 3;
-        else
             distansToAttac = 10;
+        else
+            distansToAttac = 3;
 
         if ((Vector2.Distance(transform.position, target.position) < distansToAttac))
             IsActive = true;

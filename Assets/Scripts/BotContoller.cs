@@ -25,13 +25,16 @@ public class BotContoller : MonoBehaviour
 
     public Animator animator;
 
-    private float health = 50;
+    public float health = 50;
 
     public LayerMask player;
 
     public GameObject playerObject;
 
     public float distansToAttac = 3;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +50,14 @@ public class BotContoller : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-            distansToAttac = 1;
-        else
+        // 100 - просто скорость при реакции скримера
+        // если для каждой медузы указывать скримера, то можно заменить общим полем
+        if (Input.GetKey(KeyCode.Space) && distansToAttac != 100)
             distansToAttac = 3;
+        else if (distansToAttac != 100)
+            distansToAttac = 1;
 
-            if (health <= 0)
+        if (health <= 0)
         {
             animator.SetBool("isDead", true);
             Enemy.GetComponent<Collider2D>().enabled = false;
@@ -69,7 +74,7 @@ public class BotContoller : MonoBehaviour
             Enemy.active = false;
             //Music.active= false;
             
-            Glight.SetActive(false);
+            //Glight.SetActive(false);
             Plight.SetActive(true);
             //helth = 5000;
 
@@ -101,7 +106,7 @@ public class BotContoller : MonoBehaviour
             foreach (var p in Player)
             {
                 if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
-                    p.GetComponent<Playernew>().TakeDamage(500, true);
+                    p.GetComponent<Playernew>().TakeDamage(15000, true);
             }
         }
         
