@@ -1185,9 +1185,9 @@ MonoBehaviour:
   rb2d: {fileID: 201046817}
   isFacingRight: 0
   Points:
-  - {fileID: 135032090}
   - {fileID: 1593382553}
   - {fileID: 1527215034}
+  - {fileID: 135032090}
   - {fileID: 330613491}
   distansToAttac: 3
 --- !u!95 &201046820
@@ -37681,9 +37681,9 @@ MonoBehaviour:
   rb2d: {fileID: 1270559733}
   isFacingRight: 0
   Points:
+  - {fileID: 1231705474}
   - {fileID: 62652981}
   - {fileID: 294293340}
-  - {fileID: 1231705474}
   - {fileID: 548729635}
   distansToAttac: 3
 --- !u!95 &1270559736
