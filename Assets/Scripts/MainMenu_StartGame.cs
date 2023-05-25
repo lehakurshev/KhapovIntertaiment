@@ -20,17 +20,7 @@ public class MainMenu_StartGame : MonoBehaviour
 
     private void Update()
     {
-        btn.onClick.AddListener(TaskOnClick);
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("light") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-            TaskOnNotClick();
-            
-    }
-
-    private void TaskOnNotClick()
-    {
-        if (btn.GetComponent<UnityEngine.UI.Button>().name != "startGame")
-            return;
+        btn.onClick.AddListener(TaskOnClick);     
     }
 
     private void TaskOnClick()
