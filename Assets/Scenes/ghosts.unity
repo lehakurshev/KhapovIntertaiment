@@ -5903,6 +5903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePause: 0
   player: {fileID: 912115942}
+  screem: {fileID: 0}
+  walk: {fileID: 1190652514}
   manage: {fileID: 617193081}
   settings: {fileID: 964721113}
   buttons: {fileID: 1004055804}
@@ -5919,7 +5921,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 951be2c8406abc948a8ee4b62ba30b64, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -49251,3 +49253,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 1781667103}
   player: {fileID: 912115942}
+  screem: {fileID: 0}

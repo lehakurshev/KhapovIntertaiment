@@ -5795,6 +5795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePause: 0
   player: {fileID: 865520150}
+  screem: {fileID: 0}
+  walk: {fileID: 910187203}
   manage: {fileID: 17296546}
   settings: {fileID: 1123763448}
   buttons: {fileID: 1030234190}
@@ -8126,6 +8128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 111259867}
   player: {fileID: 865520150}
+  screem: {fileID: 0}
 --- !u!114 &1249179083
 MonoBehaviour:
   m_ObjectHideFlags: 0
