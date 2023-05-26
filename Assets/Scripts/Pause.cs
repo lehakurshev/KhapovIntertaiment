@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-
     public bool GamePause = false;
     private GameObject stope;
+    private GameObject[] screemers;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject manage;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject buttons;
+    [SerializeField] private UnityEngine.UI.Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
+        screemers = GameObject.FindGameObjectsWithTag("Screemer");
         stope = GameObject.Find("PauseCanvas");
         stope.SetActive(false);
     }
@@ -29,6 +32,10 @@ public class Pause : MonoBehaviour
     {
         if (!GamePause)
         {
+            foreach(var screemer in screemers)
+            {
+                screemer.GetComponent<AudioSource>().volume = 0.0f;
+            }
             player.GetComponent<AudioSource>().volume = 0.0f;
             stope.SetActive(true);
             Time.timeScale = 0f;
@@ -36,7 +43,11 @@ public class Pause : MonoBehaviour
         }
         else if (GameObject.Find("_side walk_0").GetComponent<Playernew>().health>0)
         {
-            player.GetComponent<AudioSource>().volume = 0.2f;
+            foreach(var screemer in screemers)
+            {
+                screemer.GetComponent<AudioSource>().volume = slider.value;
+            }
+            player.GetComponent<AudioSource>().volume = slider.value;
             manage.SetActive(false);
             settings.SetActive(false);
             buttons.SetActive(true);
