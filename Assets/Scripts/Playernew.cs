@@ -41,6 +41,8 @@ public class Playernew : MonoBehaviour
     public float F = 1;
     public GameObject GameOverPNG;
 
+    public GameObject bloodConv;
+    public float V;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,7 +54,10 @@ public class Playernew : MonoBehaviour
     [Obsolete]
     private void FixedUpdate()
     {
+
         D =(health / 5000);
+        var col = bloodConv.GetComponent<SpriteRenderer>();
+        col.color= new UnityEngine.Color(1,1,1,1-D);
         M = (healthGameObject.transform.localScale.x) * D;
 
         healthGameObject.transform.localScale = new Vector2(F*D, healthGameObject.transform.localScale.y);
