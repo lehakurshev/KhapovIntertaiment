@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
     public Transform box;
     public GameObject door;
     public GameObject button;
+    public GameObject sound;
     public float length=1f;
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class Button : MonoBehaviour
         {
             door.active = false;
             button.active = true;
+            sound.SetActive(true);
 
         }
 
@@ -27,6 +29,7 @@ public class Button : MonoBehaviour
         {
             door.active = true;
             button.active = false;
+            sound.SetActive(false);
         }
 
             

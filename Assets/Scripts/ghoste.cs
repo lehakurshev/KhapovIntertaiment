@@ -34,32 +34,33 @@ public class ghoste : MonoBehaviour
             IsActive = true;
         else
             IsActive = false;
-
-        if (IsActive)
+        if (!target.GetComponent<Pause>().GamePause)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && Vector2.Distance(transform.position, target.position) < 2)
+            if (IsActive)
             {
-                var directionImpulse = (transform.position - target.position).normalized;
-                rb2d.AddForce(directionImpulse * 20000, ForceMode2D.Impulse);
-                time = Time.time;
+                if (Input.GetKey(KeyCode.Mouse0) && Vector2.Distance(transform.position, target.position) < 2)
+                {
+                    var directionImpulse = (transform.position - target.position).normalized;
+                    rb2d.AddForce(directionImpulse * 20000, ForceMode2D.Impulse);
+                    time = Time.time;
+                }
+                else
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+            }
+            else if (!IsInPoint)
+            {
+                Point = Random.Range(0, Points.Length - 1);
+
+                IsInPoint = true;
             }
             else
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+            {
+                if (Vector2.Distance(transform.position, Points[Point].transform.position) > 0.6)
+                    transform.position = Vector2.MoveTowards(transform.position, Points[Point].transform.position, speed * Time.fixedDeltaTime);
+                else
+                    IsInPoint = false;
+            }
         }
-        else if (!IsInPoint)
-        {
-            Point = Random.Range(0, Points.Length - 1);
-
-            IsInPoint = true;
-        }
-        else
-        {
-            if (Vector2.Distance(transform.position, Points[Point].transform.position) > 0.6)
-                transform.position = Vector2.MoveTowards(transform.position, Points[Point].transform.position, speed * Time.fixedDeltaTime);
-            else
-                IsInPoint = false;
-        }
-
 
         
 
