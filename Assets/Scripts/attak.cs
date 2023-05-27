@@ -15,7 +15,7 @@ public class attak : MonoBehaviour
             attakDo0und.SetActive(true);
             time = Time.time;
         }
-        else if(Time.time >= time + 0.3)
+        else if(Time.time >= time + 0.3 )
             attakDo0und.SetActive(false);
     }
 }
