@@ -12,6 +12,9 @@ public class MainMenu_StartGame : MonoBehaviour
     [SerializeField] private AudioSource thunder;
     [SerializeField] private GameObject buttons;
     [SerializeField] private GameObject changeLevel;
+    [SerializeField] private UnityEngine.UI.Button settings;
+    [SerializeField] private UnityEngine.UI.Button help;
+    [SerializeField] private UnityEngine.UI.Button quit;
 
     void Start()
     {
@@ -28,7 +31,13 @@ public class MainMenu_StartGame : MonoBehaviour
         animator.SetBool("isClick", true);
 
         if (btn.GetComponent<UnityEngine.UI.Button>().tag == "startGame")
+        {
             thunder.Play();
+            btn.enabled = false;
+            settings.enabled = false;
+            help.enabled = false;
+            quit.enabled = false;
+        }
         StartCoroutine(WaitForStateExit());
     }
 
@@ -37,6 +46,10 @@ public class MainMenu_StartGame : MonoBehaviour
         yield return new WaitForSeconds(2.3f);
         if (btn.GetComponent<UnityEngine.UI.Button>().tag == "startGame")
         {
+            btn.enabled=true;
+            settings.enabled=true;
+            help.enabled=true;
+            quit.enabled=true;
             buttons.SetActive(false);
             changeLevel.SetActive(true);
             animator.SetBool("isClick", false);

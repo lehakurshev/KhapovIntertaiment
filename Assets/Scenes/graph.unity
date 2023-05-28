@@ -14172,7 +14172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 865520150}
-  Camera: {fileID: 0}
+  Camera: {fileID: 1968013659}
   Out: {fileID: 1876633947}
 --- !u!4 &2061874938
 Transform:
