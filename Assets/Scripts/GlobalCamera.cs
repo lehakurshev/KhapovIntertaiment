@@ -6,6 +6,7 @@ public class GlobalCamera : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject camera1;
+    public GameObject Q;
 
     // Update is called once per frame
     void Update()
@@ -13,6 +14,7 @@ public class GlobalCamera : MonoBehaviour
         if ((Input.GetKey(KeyCode.Q)))
         {
             camera1.SetActive(true);
+            Q.SetActive(false);
             Time.timeScale = 0f;
         }
 
