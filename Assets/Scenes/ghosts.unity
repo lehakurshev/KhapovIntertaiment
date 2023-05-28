@@ -5688,6 +5688,7 @@ MonoBehaviour:
   manage: {fileID: 617193081}
   settings: {fileID: 964721113}
   buttons: {fileID: 1004055804}
+  swordSound: {fileID: 1454777390}
   slider: {fileID: 1956995600}
 --- !u!82 &912115944
 AudioSource:
