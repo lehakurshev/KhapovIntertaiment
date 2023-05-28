@@ -23,6 +23,7 @@ public class doorWithPassWord : MonoBehaviour
                     Passward.SetActive(true);
                     flag1= true;
                     E.SetActive(false);
+                    Time.timeScale= 0f;
                 }
 
                 else
@@ -30,6 +31,7 @@ public class doorWithPassWord : MonoBehaviour
                     Passward.SetActive(false);
                     flag1= false;
                     E.SetActive(true);
+                    Time.timeScale = 1f;
                 }
             }
             else
@@ -40,12 +42,14 @@ public class doorWithPassWord : MonoBehaviour
                     flag = true;
                     flag1= true;
                     E.SetActive(false);
+                    Time.timeScale = 0f;
                 }
                 else if (!flag1)
                 {
                     Passward.SetActive(false);
                     flag = false;
                     E.SetActive(true);
+                    Time.timeScale = 1f;
                 }
                 
             }
@@ -55,6 +59,7 @@ public class doorWithPassWord : MonoBehaviour
         {
             Passward.SetActive(false);
             E.SetActive(false);
+            Time.timeScale = 1f;
         }
             
     }
