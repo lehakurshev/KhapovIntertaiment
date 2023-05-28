@@ -25518,6 +25518,7 @@ MonoBehaviour:
   D: 1
   M: 1
   F: 1
+  cursorTexture: {fileID: 2800000, guid: 67f4243ee98db4d43afb23b9f3affd11, type: 3}
   bloodConv: {fileID: 393190093}
   V: 0.08
 --- !u!212 &810334172
