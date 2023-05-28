@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     public float damage;
     public LayerMask whaetIsSolid;
 
+    public Vector2 direction;
+
     // Update is called once per frame
     private void Start()
     {
@@ -22,15 +24,18 @@ public class Bullet : MonoBehaviour
     {
         
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distanse, whaetIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction, distanse, whaetIsSolid);
         if (hitInfo.collider != null)
         {
-            //if (hitInfo.collider.CompareTag("Enemy"))
-            //    hitInfo.collider.GetComponent<enemy>().TakeDamage(damage);
+            if (hitInfo.collider.CompareTag("Player"))
+            {
+                var player = hitInfo.collider.GetComponent<Player>();
+                Destroy(player);
+            }               
             
             Destroy(gameObject);
         }
         
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 }

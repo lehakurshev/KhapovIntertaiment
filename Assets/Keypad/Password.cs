@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
-    string Code = "123";
+    string Code = "1234";
     string Nr = null;
     int NrIndex = 0;
     string alpha;
