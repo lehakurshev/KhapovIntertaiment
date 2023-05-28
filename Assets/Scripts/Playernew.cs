@@ -111,8 +111,8 @@ public class Playernew : MonoBehaviour
             else
                 WalkSound.SetActive(false);
         }
-        
-        
+
+
     }
 
     private void Flip()
