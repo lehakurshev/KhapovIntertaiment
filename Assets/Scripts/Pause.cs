@@ -13,6 +13,7 @@ public class Pause : MonoBehaviour
     [SerializeField] private GameObject manage;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject buttons;
+    [SerializeField] private GameObject swordSound;
     [SerializeField] private UnityEngine.UI.Slider slider;
 
     // Start is called before the first frame update
@@ -33,11 +34,12 @@ public class Pause : MonoBehaviour
     {
         if (!GamePause)
         {
-            if (screem != null)
+            if (screem != null && screem.active)
                 screem.GetComponent<AudioSource>().volume = 0f;
             walk.SetActive(false);
             player.GetComponent<AudioSource>().volume = 0f;
             stope.SetActive(true);
+            swordSound.GetComponent<AudioSource>().volume = 0f;
             Time.timeScale = 0f;
             GamePause = true;
             
@@ -45,9 +47,10 @@ public class Pause : MonoBehaviour
         else if (GameObject.Find("_side walk_0").GetComponent<Playernew>().health>0)
         {
             if (screem != null)
-                screem.GetComponent<AudioSource>().volume = slider.value;
+                screem.GetComponent<AudioSource>().volume = slider.value * 0.4f;
             walk.SetActive(true);
-            player.GetComponent<AudioSource>().volume = slider.value;
+            player.GetComponent<AudioSource>().volume = slider.value * 0.4f;
+            swordSound.GetComponent<AudioSource>().volume = slider.value * 0.4f;
             manage.SetActive(false);
             settings.SetActive(false);
             buttons.SetActive(true);

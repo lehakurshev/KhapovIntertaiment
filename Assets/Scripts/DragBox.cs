@@ -7,16 +7,17 @@ public class DragBox : MonoBehaviour
     private Vector3 _dragOffest;
     private float _speedDrag = 15f;
     public GameObject Player;
-
+    public float a;
+    public float b;
     void Update()
     {
         if (transform.position.y < Player.transform.position.y)
         {
-            transform.position =  new Vector3(transform.position.x,transform.position.y,0f);
+            transform.position =  new Vector3(transform.position.x,transform.position.y,a);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0.4f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, b);
         }
     }
 
