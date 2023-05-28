@@ -47,10 +47,10 @@ public class Pause : MonoBehaviour
         else if (GameObject.Find("_side walk_0").GetComponent<Playernew>().health>0)
         {
             if (screem != null)
-                screem.GetComponent<AudioSource>().volume = slider.value * 0.2f;
+                screem.GetComponent<AudioSource>().volume = slider.value * 0.4f;
             walk.SetActive(true);
-            player.GetComponent<AudioSource>().volume = slider.value * 0.2f;
-            swordSound.GetComponent<AudioSource>().volume = slider.value * 0.2f;
+            player.GetComponent<AudioSource>().volume = slider.value * 0.4f;
+            swordSound.GetComponent<AudioSource>().volume = slider.value * 0.4f;
             manage.SetActive(false);
             settings.SetActive(false);
             buttons.SetActive(true);
