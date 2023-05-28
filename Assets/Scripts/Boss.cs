@@ -38,7 +38,7 @@ public class Boss : MonoBehaviour
             Debug.Log("ok");
             var directionImpulse = (target.position - transform.position).normalized;
             Debug.Log($"{directionImpulse}");
-            rb.AddForce(directionImpulse * 20000, ForceMode2D.Force);
+            rb.AddForce(directionImpulse * 200, ForceMode2D.Impulse);
         }
 
     }
