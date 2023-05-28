@@ -40,6 +40,7 @@ public class Pause : MonoBehaviour
             stope.SetActive(true);
             Time.timeScale = 0f;
             GamePause = true;
+            
         }
         else if (GameObject.Find("_side walk_0").GetComponent<Playernew>().health>0)
         {

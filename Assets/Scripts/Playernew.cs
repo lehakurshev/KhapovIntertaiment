@@ -39,7 +39,7 @@ public class Playernew : MonoBehaviour
     public float D = 1;
     public float M = 1;
     public float F = 1;
-    public GameObject GameOverPNG;
+    
 
     public GameObject bloodConv;
     public float V;
@@ -65,7 +65,7 @@ public class Playernew : MonoBehaviour
         if (health<= 0) 
         {
             GetComponent<Pause>().GetPause();
-            GameOverPNG.SetActive(true);
+            //GameOverPNG.SetActive(true);
             //GlobalLight.SetActive(true);
         }
         
