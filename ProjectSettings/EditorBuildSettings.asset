@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c7b08ab3c8f56d44895f41c675d7ad5b
   - enabled: 1
+    path: Assets/Scenes/Transition_first.unity
+    guid: 0af1ac9d342cae24f8b9f6f7091e423f
+  - enabled: 1
     path: Assets/Scenes/ghosts.unity
     guid: e4589415386f162458224c19cbb512b5
   - enabled: 1
