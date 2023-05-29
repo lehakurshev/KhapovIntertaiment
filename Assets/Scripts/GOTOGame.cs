@@ -17,7 +17,7 @@ public class GOTOGame : MonoBehaviour
     {
         sceneToContinue = PlayerPrefs.GetInt("SavedScene");
 
-        if (sceneToContinue == 0)
+        if (sceneToContinue <= 1)
             return;
 
         SceneManager.LoadScene(sceneToContinue);
