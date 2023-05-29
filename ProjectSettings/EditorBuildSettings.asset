@@ -9,15 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c7b08ab3c8f56d44895f41c675d7ad5b
   - enabled: 1
+    path: Assets/Scenes/Transition_first.unity
+    guid: 0af1ac9d342cae24f8b9f6f7091e423f
+  - enabled: 1
     path: Assets/Scenes/ghosts.unity
     guid: e4589415386f162458224c19cbb512b5
+  - enabled: 1
+    path: Assets/Scenes/Transition_second.unity
+    guid: 22a0c5b09ed80244e9cbbe7efae76df9
   - enabled: 1
     path: Assets/Scenes/first lvl_TO_WORK.unity
     guid: 7022157bb9016034492f0c0aea7d383e
   - enabled: 1
+    path: Assets/Scenes/Transition_third.unity
+    guid: 13e635038ed331a4085991e8990ec490
+  - enabled: 1
     path: Assets/Scenes/graph.unity
     guid: dd2b92ccff6408e4cb57e67b6fc5380e
   - enabled: 1
+    path: Assets/Scenes/Transition_fourth.unity
+    guid: 3f408e8b16050ba41a8ef5a64b5f100f
+  - enabled: 1
     path: Assets/Scenes/graph2.unity
     guid: 7431acf95c3928a4c93f133b081e1cbc
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

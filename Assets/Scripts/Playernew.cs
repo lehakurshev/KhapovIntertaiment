@@ -39,7 +39,7 @@ public class Playernew : MonoBehaviour
     public float D = 1;
     public float M = 1;
     public float F = 1;
-    
+    //public Texture2D cursorTexture;
 
     public GameObject bloodConv;
     public float V;
@@ -48,13 +48,13 @@ public class Playernew : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         F = (healthGameObject.transform.localScale.x);
-
+        //UnityEngine.Cursor.SetCursor(cursorTexture, new Vector2(10,10), CursorMode.Auto);
     }
 
     [Obsolete]
     private void FixedUpdate()
     {
-
+        //UnityEngine.Cursor.SetCursor(cursorTexture, new Vector2(10, 10), CursorMode.Auto);
         D =(health / 5000);
         var col = bloodConv.GetComponent<SpriteRenderer>();
         col.color= new UnityEngine.Color(1,1,1,1-D);
