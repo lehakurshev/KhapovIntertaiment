@@ -10,7 +10,8 @@ public class doorWithPassWord : MonoBehaviour
     private bool flag = false;
     private bool flag1 = false;
     public GameObject E;
-    
+    public GameObject sound;
+
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +26,8 @@ public class doorWithPassWord : MonoBehaviour
                     Passward.SetActive(true);
                     flag1= true;
                     E.SetActive(false);
-                    
+                    if (sound != null)
+                        sound.GetComponent<AudioSource>().volume= 0;    
                 }
 
                 else
@@ -33,7 +35,8 @@ public class doorWithPassWord : MonoBehaviour
                     Passward.SetActive(false);
                     flag1= false;
                     E.SetActive(true);
-                    
+                    if (sound!=null)
+                        sound.GetComponent<AudioSource>().volume = 0.3f;
                 }
             }
             else
@@ -44,14 +47,16 @@ public class doorWithPassWord : MonoBehaviour
                     flag = true;
                     flag1= true;
                     E.SetActive(false);
-                    
+                    if (sound != null)
+                        sound.GetComponent<AudioSource>().volume = 0;
                 }
                 else if (!flag1)
                 {
                     Passward.SetActive(false);
                     flag = false;
                     E.SetActive(true);
-                    
+                    if (sound != null)
+                        sound.GetComponent<AudioSource>().volume = 0.3f;
                 }
                 
             }

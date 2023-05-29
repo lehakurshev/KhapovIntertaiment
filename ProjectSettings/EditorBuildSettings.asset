@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/graph2.unity
     guid: 7431acf95c3928a4c93f133b081e1cbc
-  - enabled: 1
-    path: Assets/Scenes/Transition_fifth.unity
-    guid: 4a9ea42046122ab40ae2d6c6c4ee988f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
