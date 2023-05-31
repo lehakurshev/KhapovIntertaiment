@@ -45,7 +45,11 @@ public class ghoste : MonoBehaviour
                     time = Time.time;
                 }
                 else
+                {
+                    Flip(target);
                     transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+                }
+                    
             }
             else if (!IsInPoint)
             {
@@ -56,17 +60,32 @@ public class ghoste : MonoBehaviour
             else
             {
                 if (Vector2.Distance(transform.position, Points[Point].transform.position) > 0.6)
+                {
+                    Flip(Points[Point].transform);
                     transform.position = Vector2.MoveTowards(transform.position, Points[Point].transform.position, speed * Time.fixedDeltaTime);
+
+                }
+                    
                 else
                     IsInPoint = false;
             }
         }
+        
 
         
 
         
     }
 
+    private void Flip(Transform target)
+    {
+        if (isFacingRight && (target.position.x - transform.position.x) < 0f || !isFacingRight && (target.position.x - transform.position.x) > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
 
-    
 }
