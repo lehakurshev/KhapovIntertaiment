@@ -43,6 +43,8 @@ public class Playernew : MonoBehaviour
 
     public GameObject bloodConv;
     public float V;
+    public GameObject damagSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,8 +70,8 @@ public class Playernew : MonoBehaviour
             //GameOverPNG.SetActive(true);
             //GlobalLight.SetActive(true);
         }
-        
-        
+
+        //damagSound.SetActive(false);
 
 
         if (Input.GetKey(KeyCode.Space))
@@ -148,9 +150,10 @@ public class Playernew : MonoBehaviour
 
     public void TakeDamage(float damage,bool isdamage) 
     {
+
         health-=damage;
         //GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 0, 0);
-
+        damagSound.SetActive(isdamage);
     }
 
     

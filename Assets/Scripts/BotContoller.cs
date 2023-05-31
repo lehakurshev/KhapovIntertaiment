@@ -33,7 +33,7 @@ public class BotContoller : MonoBehaviour
 
     public float distansToAttac = 3;
 
-
+    public GameObject damagSound;
 
 
     // Start is called before the first frame update
@@ -106,7 +106,14 @@ public class BotContoller : MonoBehaviour
             foreach (var p in Player)
             {
                 if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
+                {
                     p.GetComponent<Playernew>().TakeDamage(4, true);
+
+                }
+                else
+                    p.GetComponent<Playernew>().TakeDamage(0, false);
+
+
             }
         }
         
