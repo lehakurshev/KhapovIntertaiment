@@ -42,10 +42,11 @@ public class Playernew : MonoBehaviour
     //public Texture2D cursorTexture;
 
     public GameObject bloodConv;
+    public GameObject bloodConv1;
     public float V;
     public GameObject damagSound;
 
-
+    public GameObject Center;
     private bool flag = false;
     private bool flag1 = false;
 
@@ -102,12 +103,27 @@ public class Playernew : MonoBehaviour
 
 
         //UnityEngine.Cursor.SetCursor(cursorTexture, new Vector2(10, 10), CursorMode.Auto);
-        D =(health / 5000);
-        var col = bloodConv.GetComponent<SpriteRenderer>();
-        col.color= new UnityEngine.Color(1,1,1,1-D);
-        M = (healthGameObject.transform.localScale.x) * D;
+        if (bloodConv != null)
+        {
+            var col = bloodConv.GetComponent<SpriteRenderer>();
+            D = (health / 5000);
 
-        healthGameObject.transform.localScale = new Vector2(F*D, healthGameObject.transform.localScale.y);
+            col.color = new UnityEngine.Color(1, 1, 1, 1 - D);
+            M = (healthGameObject.transform.localScale.x) * D;
+
+            healthGameObject.transform.localScale = new Vector2(F * D, healthGameObject.transform.localScale.y);
+        }
+        else
+        {
+            var col = bloodConv1.GetComponent<Image>();
+            D = (health / 5000);
+
+            col.tintColor = new UnityEngine.Color(1, 1, 1, 1 - D);
+            M = (healthGameObject.transform.localScale.x) * D;
+
+            healthGameObject.transform.localScale = new Vector2(F * D, healthGameObject.transform.localScale.y);
+        }
+        
 
         if (health<= 0) 
         {
@@ -159,7 +175,25 @@ public class Playernew : MonoBehaviour
                 WalkSound.SetActive(false);
         }
 
+        
+        if (Center != null)
+        {
+            var enemy = Physics2D.OverlapCircleAll(Center.transform.position, 1000f, enemies);
+            var z = 0;
+            foreach (var e in enemy)
+            {
+                if (Vector2.Distance(Center.transform.position, e.transform.position) < 1)
+                {
+                    z++;
+                }
 
+
+            }
+            if (z != 0)
+                damagSound.SetActive(true);
+            else
+                damagSound.SetActive(false);
+        }
     }
 
     private void Flip()
@@ -198,7 +232,7 @@ public class Playernew : MonoBehaviour
 
         health-=damage;
         //GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 0, 0);
-        damagSound.SetActive(isdamage);
+        //damagSound.SetActive(isdamage);
     }
 
     

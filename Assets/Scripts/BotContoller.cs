@@ -147,7 +147,7 @@ public class BotContoller : MonoBehaviour
             {
                 if (Vector2.Distance(Enemy.transform.position, Center.transform.position) < 1)
                 {
-                    p.GetComponent<Playernew>().TakeDamage(10, true);
+                    p.GetComponent<Playernew>().TakeDamage(4, true);
 
                 }
                 else
