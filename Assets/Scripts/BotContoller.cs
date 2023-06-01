@@ -31,10 +31,12 @@ public class BotContoller : MonoBehaviour
 
     public GameObject playerObject;
 
-    public float distansToAttac = 3;
+    public float distansToAttac = 1;
 
     public GameObject damagSound;
 
+    private bool flag = false;
+    private bool flag1 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +54,44 @@ public class BotContoller : MonoBehaviour
     {
         // 100 - просто скорость при реакции скримера
         // если для каждой медузы указывать скримера, то можно заменить общим полем
-        if (Input.GetKey(KeyCode.Space) && distansToAttac != 100)
-            distansToAttac = 3;
-        else if (distansToAttac != 100)
-            distansToAttac = 1;
+        //if (Input.GetKey(KeyCode.Space) && distansToAttac != 100)
+        //    distansToAttac = 3;
+        //else if (distansToAttac != 100)
+        //    distansToAttac = 1;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (!flag)
+            {
+                //Passward.SetActive(true);
+                flag1 = true;
+                distansToAttac = 3;
+
+            }
+
+            else
+            {
+
+                flag1 = false;
+                distansToAttac = 1;
+            }
+        }
+        else
+        {
+            if (!flag && flag1)
+            {
+
+                flag = true;
+                flag1 = true;
+                distansToAttac = 3;
+            }
+            else if (!flag1)
+            {
+
+                flag = false;
+                distansToAttac = 1;
+            }
+
+        }
 
         if (health <= 0)
         {

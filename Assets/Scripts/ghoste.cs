@@ -16,6 +16,7 @@ public class ghoste : MonoBehaviour
     static bool IsActive = false;
     static bool IsInPoint = false;
     static int Point;
+
     private bool flag = false;
     private bool flag1 = false;
     // Start is called before the first frame update
