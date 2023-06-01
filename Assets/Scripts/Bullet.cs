@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
                 if (hitInfo.collider.CompareTag("Playernew"))
                 {
                     var player = hitInfo.collider.GameObject();
-                    player.SetActive(false);
+                    player.GetComponent<Playernew>().TakeDamage(1000, true);
                 }
                 if (hitInfo.collider.CompareTag("Stone"))
                 {
