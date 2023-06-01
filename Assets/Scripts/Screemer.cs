@@ -10,13 +10,11 @@ public class Screemer : MonoBehaviour
     public float speed = 5;
     public GameObject sleep;
     public GameObject activ;
-    public GameObject player;
     public GameObject music;
     public GameObject Glight;
     public GameObject Plight;
-    public GameObject wave;
-    public GameObject door;
     public GameObject[] jellyfish;
+    public GameObject gate;
 
     void Start()
     {
@@ -36,15 +34,11 @@ public class Screemer : MonoBehaviour
         if (k == jellyfish.Length)
         {
             music.SetActive(false);
-                
             Glight.SetActive(false);
             Plight.SetActive(true);
             Destroy(this.gameObject);
 
         }
-                
-        
-
 
         if (Vector2.Distance(transform.position, target.position) < 3)
         {
@@ -53,6 +47,8 @@ public class Screemer : MonoBehaviour
             music.SetActive(true);
             Glight.SetActive(true);
             Plight.SetActive(false);
+            if (gate != null)
+                gate.SetActive(false);
 
             foreach (var j in jellyfish)
             {
