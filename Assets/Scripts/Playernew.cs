@@ -45,6 +45,10 @@ public class Playernew : MonoBehaviour
     public float V;
     public GameObject damagSound;
 
+
+    private bool flag = false;
+    private bool flag1 = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +60,46 @@ public class Playernew : MonoBehaviour
     [Obsolete]
     private void FixedUpdate()
     {
+
+
+        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (!flag)
+            {
+                //Passward.SetActive(true);
+                flag1 = true;
+                Light.GetComponent<Light2D>().intensity = 1;
+
+            }
+
+            else
+            {
+                
+                flag1 = false;
+                Light.GetComponent<Light2D>().intensity = 0.06f;
+            }
+        }
+        else
+        {
+            if (!flag && flag1)
+            {
+                
+                flag = true;
+                flag1 = true;
+                Light.GetComponent<Light2D>().intensity = 1;
+            }
+            else if (!flag1)
+            {
+                
+                flag = false;
+                Light.GetComponent<Light2D>().intensity = 0.06f;
+            }
+
+        }
+
+
+
         //UnityEngine.Cursor.SetCursor(cursorTexture, new Vector2(10, 10), CursorMode.Auto);
         D =(health / 5000);
         var col = bloodConv.GetComponent<SpriteRenderer>();
@@ -74,10 +118,10 @@ public class Playernew : MonoBehaviour
         //damagSound.SetActive(false);
 
 
-        if (Input.GetKey(KeyCode.Space))
-            Light.GetComponent<Light2D>().intensity = 1;
-        else
-            Light.GetComponent<Light2D>().intensity = 0.06f;
+        //if (Input.GetKey(KeyCode.Space))
+        //    Light.GetComponent<Light2D>().intensity = 1;
+        //else
+         //   Light.GetComponent<Light2D>().intensity = 0.06f;
 
         if (Input.GetKey(KeyCode.Mouse0))
         { 

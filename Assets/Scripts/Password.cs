@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
-    string Code = "1234";
+    string Code = "314";
     string Nr = null;
     int NrIndex = 0;
     string alpha;
@@ -14,6 +14,7 @@ public class Password : MonoBehaviour
     public GameObject doorPoint;
     public GameObject wave;
     public GameObject E;
+    public GameObject Sound;
 
     public void CodeFunction(string Numbers)
     {
@@ -31,6 +32,11 @@ public class Password : MonoBehaviour
             doorPoint.SetActive(false);
             wave.SetActive(false);
             E.SetActive(false);
+            if(Sound!= null)
+            {
+                Sound.SetActive(true);
+            }
+            
         }
     }
     public void Delete()
