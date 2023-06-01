@@ -23,6 +23,7 @@ public class Pause : MonoBehaviour
     {
         stopePause = GameObject.Find("PauseCanvas");
         stopeDeath = GameObject.Find("DeathCanvas");
+        Time.timeScale = 1f;
         stopePause.SetActive(false);
         if(stopeDeath != null)
             stopeDeath.SetActive(false);
@@ -33,15 +34,24 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             GetPause();
-        if (player.GetComponent<Playernew>().health <= 0)
-        {
-            stopePause.SetActive(false);
-            if(stopeDeath != null)
-            {
-                acheSound.Stop();
-                stopeDeath.SetActive(true);
-            }
-        }
+
+        if (player.GetComponent<Playernew>().health <= 0 &&
+            stopeDeath != null &&
+            !stopeDeath.active)
+            GetDeath();
+    }
+
+    private void GetDeath()
+    {
+        stopePause.SetActive(false);
+        if (screem != null && screem.active)
+            screem.GetComponent<AudioSource>().volume = 0f;
+        walk.SetActive(false);
+        player.GetComponent<AudioSource>().volume = 0f;
+        swordSound.GetComponent<AudioSource>().volume = 0f;
+        acheSound.volume = 0f;
+        stopeDeath.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void GetPause()
@@ -57,7 +67,6 @@ public class Pause : MonoBehaviour
             acheSound.volume = 0f;
             Time.timeScale = 0f;
             GamePause = true;
-            
         }
         else if (GameObject.Find("_side walk_0").GetComponent<Playernew>().health>0)
         {
