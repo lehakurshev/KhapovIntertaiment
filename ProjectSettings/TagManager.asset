@@ -9,6 +9,7 @@ TagManager:
   - startGame
   - Screemer
   - Stone
+  - Boss
   layers:
   - Default
   - TransparentFX
