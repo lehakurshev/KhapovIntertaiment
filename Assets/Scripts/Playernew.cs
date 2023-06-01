@@ -45,7 +45,7 @@ public class Playernew : MonoBehaviour
     public float V;
     public GameObject damagSound;
 
-
+    public GameObject Center;
     private bool flag = false;
     private bool flag1 = false;
 
@@ -159,7 +159,25 @@ public class Playernew : MonoBehaviour
                 WalkSound.SetActive(false);
         }
 
+        
+        if (Center != null)
+        {
+            var enemy = Physics2D.OverlapCircleAll(Center.transform.position, 1000f, enemies);
+            var z = 0;
+            foreach (var e in enemy)
+            {
+                if (Vector2.Distance(Center.transform.position, e.transform.position) < 1)
+                {
+                    z++;
+                }
 
+
+            }
+            if (z != 0)
+                damagSound.SetActive(true);
+            else
+                damagSound.SetActive(false);
+        }
     }
 
     private void Flip()
@@ -198,7 +216,7 @@ public class Playernew : MonoBehaviour
 
         health-=damage;
         //GetComponent<Renderer>().material.color = new UnityEngine.Color(1, 0, 0);
-        damagSound.SetActive(isdamage);
+        //damagSound.SetActive(isdamage);
     }
 
     
