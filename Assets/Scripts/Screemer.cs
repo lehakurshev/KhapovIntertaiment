@@ -40,7 +40,7 @@ public class Screemer : MonoBehaviour
 
         }
 
-        if (Vector2.Distance(transform.position, target.position) < 3)
+        if (Vector2.Distance(transform.position, target.position) < 3.2)
         {
             sleep.active = false;
             activ.active = true;
