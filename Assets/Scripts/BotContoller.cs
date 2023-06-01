@@ -147,7 +147,7 @@ public class BotContoller : MonoBehaviour
             {
                 if (Vector2.Distance(Enemy.transform.position, Center.transform.position) < 1)
                 {
-                    p.GetComponent<Playernew>().TakeDamage(4, true);
+                    p.GetComponent<Playernew>().TakeDamage(6, true);
 
                 }
                 else
@@ -156,33 +156,8 @@ public class BotContoller : MonoBehaviour
 
             }
         }
-        
-        
-
-
-
-
-
-        //bool asi = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_idle");
-        //bool asi2 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_idle");
-        //bool asi3 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_down_walk");
-        //bool asi4 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_side_walk");
-        //bool asi5 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_idle");
-        //bool asi6 = GameObject.Find("_side walk_0").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("attack_up_walk");
-
-        //var S = asi || asi2 || asi3 || asi4 || asi5 || asi6;
-
-        //if (S && Vector2.Distance(Enemy.transform.position, playerTr.position) < 2 && Input.GetKey(KeyCode.Mouse0))
-        //{
-        //    Enemy.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
-        //    Enemy.transform.position= Vector2.MoveTowards(transform.position, playerTr.transform.position, -2*Time.fixedDeltaTime);
-        //    helth--;
-        //}
-        //else
-        //{
-        //    Enemy.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
-        //}
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;

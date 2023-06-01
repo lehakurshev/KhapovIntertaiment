@@ -35776,13 +35776,8 @@ MonoBehaviour:
   - {x: 3.468752, y: 4.40625, z: 0}
   - {x: 3.468752, y: -4.406252, z: 0}
   m_ShapePathHash: 0
-<<<<<<< HEAD
-  m_Mesh: {fileID: 2145821964}
-  m_InstanceId: 104468
-=======
   m_Mesh: {fileID: 575955561}
   m_InstanceId: 67266
->>>>>>> origin/main
   m_LocalBounds:
     m_Center: {x: 0.0000009536743, y: -0.0000009536743, z: 0}
     m_Extent: {x: 3.468751, y: 4.406251, z: 0}
