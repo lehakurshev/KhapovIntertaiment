@@ -52,6 +52,7 @@ public class Playernew : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
 
         F = (healthGameObject.transform.localScale.x);
         //UnityEngine.Cursor.SetCursor(cursorTexture, new Vector2(10,10), CursorMode.Auto);

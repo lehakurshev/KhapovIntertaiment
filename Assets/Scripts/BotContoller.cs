@@ -10,6 +10,7 @@ public class BotContoller : MonoBehaviour
     public Transform playerTr;
     NavMeshAgent agent;
     public double helth=5000;
+    public GameObject Center;
     public GameObject Enemy;
     public GameObject Music;
     public GameObject Glight;
@@ -58,39 +59,42 @@ public class BotContoller : MonoBehaviour
         //    distansToAttac = 3;
         //else if (distansToAttac != 100)
         //    distansToAttac = 1;
-        if (Input.GetKey(KeyCode.Space))
+        if (distansToAttac != 100)
         {
-            if (!flag)
+            if (Input.GetKey(KeyCode.Space))
             {
-                //Passward.SetActive(true);
-                flag1 = true;
-                distansToAttac = 3;
+                if (!flag)
+                {
+                    //Passward.SetActive(true);
+                    flag1 = true;
+                    distansToAttac = 3;
 
+                }
+
+                else
+                {
+
+                    flag1 = false;
+                    distansToAttac = 1;
+                }
             }
-
             else
             {
+                if (!flag && flag1)
+                {
 
-                flag1 = false;
-                distansToAttac = 1;
+                    flag = true;
+                    flag1 = true;
+                    distansToAttac = 3;
+                }
+                else if (!flag1)
+                {
+
+                    flag = false;
+                    distansToAttac = 1;
+                }
+
             }
-        }
-        else
-        {
-            if (!flag && flag1)
-            {
-
-                flag = true;
-                flag1 = true;
-                distansToAttac = 3;
-            }
-            else if (!flag1)
-            {
-
-                flag = false;
-                distansToAttac = 1;
-            }
-
         }
 
         if (health <= 0)
@@ -141,9 +145,9 @@ public class BotContoller : MonoBehaviour
         {
             foreach (var p in Player)
             {
-                if (Vector2.Distance(Enemy.transform.position, playerTr.position) < 0.7)
+                if (Vector2.Distance(Enemy.transform.position, Center.transform.position) < 1)
                 {
-                    p.GetComponent<Playernew>().TakeDamage(4, true);
+                    p.GetComponent<Playernew>().TakeDamage(10, true);
 
                 }
                 else
