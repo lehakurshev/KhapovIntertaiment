@@ -5,7 +5,8 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     public bool GamePause = false;
-    private GameObject stope;
+    private GameObject stopePause;
+    private GameObject stopeDeath;
     private GameObject[] screemers;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject screem;
@@ -19,8 +20,11 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stope = GameObject.Find("PauseCanvas");
-        stope.SetActive(false);
+        stopePause = GameObject.Find("PauseCanvas");
+        stopeDeath = GameObject.Find("DeathCanvas");
+        stopePause.SetActive(false);
+        if(stopeDeath != null)
+            stopeDeath.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,6 +32,12 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             GetPause();
+        if (player.GetComponent<Playernew>().health <= 0)
+        {
+            stopePause.SetActive(false);
+            if(stopeDeath != null)
+                stopeDeath.SetActive(true);
+        }
     }
 
     public void GetPause()
@@ -38,7 +48,7 @@ public class Pause : MonoBehaviour
                 screem.GetComponent<AudioSource>().volume = 0f;
             walk.SetActive(false);
             player.GetComponent<AudioSource>().volume = 0f;
-            stope.SetActive(true);
+            stopePause.SetActive(true);
             swordSound.GetComponent<AudioSource>().volume = 0f;
             Time.timeScale = 0f;
             GamePause = true;
@@ -54,7 +64,7 @@ public class Pause : MonoBehaviour
             manage.SetActive(false);
             settings.SetActive(false);
             buttons.SetActive(true);
-            stope.SetActive(false);
+            stopePause.SetActive(false);
             Time.timeScale = 1f;
             GamePause = false;
         }
