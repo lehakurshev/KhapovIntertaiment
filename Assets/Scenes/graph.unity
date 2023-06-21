@@ -826,7 +826,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -7181,6 +7181,7 @@ MonoBehaviour:
   settings: {fileID: 1123763448}
   buttons: {fileID: 1030234190}
   swordSound: {fileID: 539418154}
+  acheSound: {fileID: 0}
   slider: {fileID: 1307374487}
 --- !u!82 &865520153
 AudioSource:
@@ -7368,6 +7369,7 @@ MonoBehaviour:
   M: 1
   F: 1
   bloodConv: {fileID: 425865354}
+  bloodConv1: {fileID: 0}
   V: 0
   damagSound: {fileID: 0}
   Center: {fileID: 0}
@@ -12296,7 +12298,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 159716913, guid: a798d711584c54743a37fe935fc5bbb9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12314,7 +12316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478787279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.98, y: 184.49, z: 0}
+  m_LocalPosition: {x: 89.88, y: 183.77, z: 0}
   m_LocalScale: {x: 1.2450199, y: 1.0937, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56986,7 +56988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785306089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.72, y: 65.6, z: 0.99}
+  m_LocalPosition: {x: 94.04, y: 63.82, z: 0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

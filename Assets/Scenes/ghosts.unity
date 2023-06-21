@@ -10848,7 +10848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2c723616ddfef43a1f2b90bda0ed02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attakDo0und: {fileID: 1454777390}
 --- !u!4 &611255447
 Transform:
   m_ObjectHideFlags: 0
@@ -16071,6 +16070,7 @@ MonoBehaviour:
   settings: {fileID: 964721113}
   buttons: {fileID: 1004055804}
   swordSound: {fileID: 1454777390}
+  acheSound: {fileID: 89844486}
   slider: {fileID: 1956995600}
 --- !u!82 &912115944
 AudioSource:
@@ -16258,8 +16258,10 @@ MonoBehaviour:
   M: 1
   F: 1
   bloodConv: {fileID: 321343099}
+  bloodConv1: {fileID: 0}
   V: 0
   damagSound: {fileID: 0}
+  Center: {fileID: 0}
 --- !u!212 &912115949
 SpriteRenderer:
   m_ObjectHideFlags: 0

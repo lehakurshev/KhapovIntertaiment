@@ -32,7 +32,9 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && 
+            (stopeDeath == null ||
+            !stopeDeath.active))
             GetPause();
 
         if (player.GetComponent<Playernew>().health <= 0 &&
