@@ -17,7 +17,7 @@ public class ChangeLVL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) < 2)
+        if (Vector2.Distance(transform.position, target.position) < 3)
         {
             var currentScene = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("SavedScene", currentScene + 1);
