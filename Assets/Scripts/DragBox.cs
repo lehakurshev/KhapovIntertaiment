@@ -34,7 +34,7 @@ public class DragBox : MonoBehaviour
     }
     Vector3 GetMousePosicion()
     {
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mousePos = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;
     }

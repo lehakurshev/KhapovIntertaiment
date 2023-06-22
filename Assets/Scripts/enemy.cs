@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public float health;
+    public float Health;
     //public bool aggressive = false;
-    public float speed = 1f;
-    public float distance = 3;
+    public float Speed = 1f;
+    public float Distance = 3;
     Transform target;
-    public GameObject Point1;
-    public GameObject Point2;
-    public GameObject player;
-    private bool a = true;
+    [SerializeField] private GameObject point1;
+    [SerializeField] private GameObject point2;
+    [SerializeField] private GameObject player;
+    private bool isAggresive = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        //if (Vector2.Distance(transform.position, target.position) < 1)
-            target = GameObject.FindGameObjectWithTag("Playernew").GetComponent<Transform>();
-
-        health = 60;
+        target = GameObject.FindGameObjectWithTag("Playernew").GetComponent<Transform>();
+        Health = 60;
     }
 
     // Update is called once per frame
@@ -29,25 +26,25 @@ public class enemy : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
-            distance = 1;
+            Distance = 1;
         else
-            distance = 3;
+            Distance = 3;
         //if(Vector2.Distance(transform.position, target.position) < distance)
         //aggressive= true;
         if (Vector2.Distance(transform.position, target.position) < 0.6)
             player.active = false;
-        if (Vector2.Distance(transform.position, target.position) > distance && Vector2.Distance(transform.position, Point1.transform.position) > 0.1 && a)
-            transform.position = Vector2.MoveTowards(transform.position, Point1.transform.position, speed * Time.fixedDeltaTime);
-        else if (Vector2.Distance(transform.position, target.position) > distance && Vector2.Distance(transform.position, Point2.transform.position) > 0.1)
+        if (Vector2.Distance(transform.position, target.position) > Distance && Vector2.Distance(transform.position, point1.transform.position) > 0.1 && isAggresive)
+            transform.position = Vector2.MoveTowards(transform.position, point1.transform.position, Speed * Time.fixedDeltaTime);
+        else if (Vector2.Distance(transform.position, target.position) > Distance && Vector2.Distance(transform.position, point2.transform.position) > 0.1)
         {
-            a = false;
-            transform.position = Vector2.MoveTowards(transform.position, Point2.transform.position, speed * Time.fixedDeltaTime);
+            isAggresive = false;
+            transform.position = Vector2.MoveTowards(transform.position, point2.transform.position, Speed * Time.fixedDeltaTime);
         }
-        else if (Vector2.Distance(transform.position, target.position) > distance)
-            a = true;
+        else if (Vector2.Distance(transform.position, target.position) > Distance)
+            isAggresive = true;
         else
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
-        if (health <= 0)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, Speed * Time.fixedDeltaTime);
+        if (Health <= 0)
         {
             Destroy(gameObject);
         }

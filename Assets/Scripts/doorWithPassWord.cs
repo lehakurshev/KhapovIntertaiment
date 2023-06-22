@@ -2,37 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class doorWithPassWord : MonoBehaviour
+public class DoorWithPassWord : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Passward;
-    public GameObject Player;
+    [SerializeField] private GameObject password;
+    [SerializeField] private GameObject player;
     private bool flag = false;
     private bool flag1 = false;
-    public GameObject E;
-    public GameObject sound;
+    [SerializeField] private GameObject E;
+    [SerializeField] private GameObject sound;
 
-    // Update is called once per frame
     void Update()
     {
         
-        if (Vector2.Distance(transform.position, Player.transform.position) < 3)
+        if (Vector2.Distance(transform.position, player.transform.position) < 3)
         {
             E.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {
                 if (!flag)
                 {
-                    Passward.SetActive(true);
+                    password.SetActive(true);
                     flag1= true;
                     E.SetActive(false);
                     if (sound != null)
                         sound.GetComponent<AudioSource>().volume= 0;    
                 }
-
                 else
                 {
-                    Passward.SetActive(false);
+                    password.SetActive(false);
                     flag1= false;
                     E.SetActive(true);
                     if (sound!=null)
@@ -43,7 +41,7 @@ public class doorWithPassWord : MonoBehaviour
             {
                 if (!flag && flag1)
                 {
-                    Passward.SetActive(true);
+                    password.SetActive(true);
                     flag = true;
                     flag1= true;
                     E.SetActive(false);
@@ -52,23 +50,19 @@ public class doorWithPassWord : MonoBehaviour
                 }
                 else if (!flag1)
                 {
-                    Passward.SetActive(false);
+                    password.SetActive(false);
                     flag = false;
                     E.SetActive(true);
                     if (sound != null)
                         sound.GetComponent<AudioSource>().volume = 0.3f;
                 }
-                
-            }
-                    
+            }        
         }
         else
         {
-            Passward.SetActive(false);
+            password.SetActive(false);
             E.SetActive(false);
-            
         }
-            
     }
 }
 

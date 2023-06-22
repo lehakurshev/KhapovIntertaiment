@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 target;

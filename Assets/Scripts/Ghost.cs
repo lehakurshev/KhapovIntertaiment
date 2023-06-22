@@ -4,21 +4,22 @@ using System.Drawing;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class ghoste : MonoBehaviour
+public class Ghost : MonoBehaviour
 {
     Transform target;
-    public float speed = 3;
-    public Rigidbody2D rb2d;
-    public bool isFacingRight = false;
-    static double time = 0;
+    public float Speed = 3;
+    [SerializeField] private Rigidbody2D rb2d;
+    [SerializeField] private bool isFacingRight = false;
+    static double Time = 0;
     public GameObject[] Points;
-    public float distansToAttac = 20;
+    [SerializeField] private float distansToAttac = 20;
     static bool IsActive = false;
     static bool IsInPoint = false;
     static int Point;
 
     private bool flag = false;
     private bool flag1 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +29,6 @@ public class ghoste : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey(KeyCode.Space))
-        //    distansToAttac = 10;
-        //else
-        //    distansToAttac = 3;
         if (Input.GetKey(KeyCode.Space))
         {
             if (!flag)
@@ -64,7 +61,6 @@ public class ghoste : MonoBehaviour
                 flag = false;
                 distansToAttac = 3;
             }
-
         }
 
         if ((Vector2.Distance(transform.position, target.position) < distansToAttac))
@@ -79,12 +75,12 @@ public class ghoste : MonoBehaviour
                 {
                     var directionImpulse = (transform.position - target.position).normalized;
                     rb2d.AddForce(directionImpulse * 20000, ForceMode2D.Impulse);
-                    time = Time.time;
+                    Time = UnityEngine.Time.time;
                 }
                 else
                 {
                     Flip(target);
-                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, Speed * UnityEngine.Time.fixedDeltaTime);
                 }
                     
             }
@@ -99,7 +95,7 @@ public class ghoste : MonoBehaviour
                 if (Vector2.Distance(transform.position, Points[Point].transform.position) > 0.6)
                 {
                     Flip(Points[Point].transform);
-                    transform.position = Vector2.MoveTowards(transform.position, Points[Point].transform.position, speed * Time.fixedDeltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, Points[Point].transform.position, Speed * UnityEngine.Time.fixedDeltaTime);
 
                 }
                     
@@ -107,11 +103,6 @@ public class ghoste : MonoBehaviour
                     IsInPoint = false;
             }
         }
-        
-
-        
-
-        
     }
 
     private void Flip(Transform target)
@@ -124,5 +115,4 @@ public class ghoste : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
 }
